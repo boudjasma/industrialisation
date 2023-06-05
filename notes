@@ -1,0 +1,23 @@
+Dans un premier temps on créé une Dockerfile 
+Config : 
+    FROM python:3.7
+    WORKDIR /app
+
+on créé l'image avec la commande : 
+    docker build -t indus:v1.0 .
+
+On créé un fichier python test.py 
+
+on modifie le Dockerfile en rajoutant : 
+ADD . /app
+config actuel : 
+    FROM python:3.7
+    RUN pip install numpy
+    WORKDIR /app
+    ADD . /app
+    CMD ["python", "test.py"]
+ensuite exécuter : 
+    docker build -t indus:v1.0 .
+
+Lancer : 
+docker run indus:v1.0 
